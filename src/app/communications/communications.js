@@ -1,6 +1,5 @@
 angular.module( 'ngBoilerplate.communications', [
   'ui.router',
-  'placeholders',
   'ui.bootstrap'
 ])
 
@@ -13,7 +12,7 @@ angular.module( 'ngBoilerplate.communications', [
         templateUrl: 'communications/communications.tpl.html'
       }
     },
-    data:{ pageTitle: 'What is It?' }
+    data:{ pageTitle: 'Comunicaciones' }
   });
 })
 

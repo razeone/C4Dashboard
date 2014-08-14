@@ -6,7 +6,6 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.maps',
   'ngBoilerplate.intelligence',
   'ngBoilerplate.communications',
-  'highcharts-ng',
   'ui.router'
 ])
 

@@ -1,6 +1,5 @@
 angular.module( 'ngBoilerplate.maps', [
   'ui.router',
-  'placeholders',
   'ui.bootstrap'
 ])
 
@@ -13,7 +12,7 @@ angular.module( 'ngBoilerplate.maps', [
         templateUrl: 'maps/maps.tpl.html'
       }
     },
-    data:{ pageTitle: 'What is It?' }
+    data:{ pageTitle: 'Mapas' }
   });
 })
 

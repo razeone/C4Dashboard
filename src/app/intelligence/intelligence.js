@@ -1,6 +1,5 @@
 angular.module( 'ngBoilerplate.intelligence', [
   'ui.router',
-  'placeholders',
   'ui.bootstrap'
 ])
 
@@ -13,7 +12,7 @@ angular.module( 'ngBoilerplate.intelligence', [
         templateUrl: 'intelligence/intelligence.tpl.html'
       }
     },
-    data:{ pageTitle: 'What is It?' }
+    data:{ pageTitle: 'Inteligencia' }
   });
 })
 
