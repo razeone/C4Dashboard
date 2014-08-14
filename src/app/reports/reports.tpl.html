@@ -1,0 +1,43 @@
+<div class="row">
+  
+<!--
+Ok, this is the header
+  -->
+  <h1 class="page-header">
+    Reportes C4
+  </h1>
+  
+  <!--
+  This is the left panel
+  -->
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Reportes</div>
+      <div class="panel-body">
+        Seleccione el tipo de gráfica y la fuente de datos
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item">Quejas</li>
+        <li class="list-group-item">Bajas/OS</li>
+        <li class="list-group-item">Pagos</li>
+      </ul>
+    </div>
+  </div>
+
+  <!--
+  This is the charts content
+  -->
+ <div class="span12">
+    <input ng-model="chartConfig.title.text">
+    <button ng-click="addSeries()">Add Series</button>
+    <button ng-click="addPoints()">Add Points to Random Series</button>
+    <button ng-click="removeRandomSeries()">Remove Random Series</button>
+    <button ng-click="swapChartType()">Line/Bar</button>
+    <button ng-click="toggleLoading()">Loading?</button>
+</div>
+<div class="row">
+    <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+</div>
+
+</div>
+
