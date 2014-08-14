@@ -1,6 +1,7 @@
 angular.module( 'ngBoilerplate.maps', [
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'google-maps'
 ])
 
 .config(function config( $stateProvider ) {
@@ -18,11 +19,13 @@ angular.module( 'ngBoilerplate.maps', [
 
 .controller( 'MapsCtrl', function MapsCtrl( $scope ) {
   // This is simple a demo for UI Boostrap.
-  $scope.dropdownDemoItems = [
-    "The first choice!",
-    "And another choice for you.",
-    "but wait! A third!"
-  ];
+  $scope.map = {
+    center: {
+        latitude: 45,
+        longitude: -73
+    },
+    zoom: 8
+};
 })
 
 ;

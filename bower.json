@@ -11,7 +11,7 @@
   "dependencies": {
     "angular-ui-map": "~0.5.0",
     "jquery": "~2.1.1",
-    "highcharts-ng": "~0.0.6",
-    "highcharts-release": "~4.0.3"
+    "angular-google-maps": "~1.2.0",
+    "angular-charts": "~0.2.4"
   }
 }

@@ -63,9 +63,11 @@ module.exports = {
   vendor_files: {
     js: [
 	'vendor/angular/angular.js',
-      	'vendor/d3/d3.js',
+  'vendor/d3/d3.min.js',
+  'vendor/lodash/dist/lodash.underscore.min.js',
 	'vendor/angular-charts/dist/angular-charts.min.js',
-	'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
+	'vendor/angular-google-maps/dist/angular-google-maps.js',
+  'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
 	'vendor/angular-ui-router/release/angular-ui-router.js',
 	'vendor/angular-ui-utils/modules/route/route.js',
 	'vendor/angular-ui-map/ui-map.js'
