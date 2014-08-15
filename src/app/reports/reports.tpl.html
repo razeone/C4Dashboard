@@ -16,9 +16,9 @@ Ok, this is the header
         Seleccione el tipo de gráfica y la fuente de datos
       </div>
       <ul class="list-group">
-        <li class="list-group-item">Quejas</li>
-        <li class="list-group-item">Bajas/OS</li>
-        <li class="list-group-item">Pagos</li>
+        <li class="list-group-item"><a href="complains">Quejas</a></li>
+        <li class="list-group-item"><a href="serviceOrders">Bajas/OS</a></li>
+        <li class="list-group-item"><a href="payments">Pagos</a></li>
       </ul>
     </div>
   </div>
@@ -26,8 +26,8 @@ Ok, this is the header
   <!--
   This is the charts content
   -->
-
-<select ng-model="chartType">
+  <div class="col-md-8">
+    <select ng-model="chartType">
     <option value="pie">pie</option>
     <option value="bar">bar</option>
     <option value="line">line</option>
@@ -47,6 +47,7 @@ Ok, this is the header
   <div ac-chart="chartType" ac-data="data2" ac-config="config2"></div>
 
 </div>
+  </div>
 
 </div>
 

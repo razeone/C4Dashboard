@@ -4,22 +4,22 @@
 Ok, this is the header
   -->
   <h1 class="page-header">
-    Reportes C4
+    Mapas C4
   </h1>
   
   <!--
   This is the left panel
   -->
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div class="panel panel-primary">
-      <div class="panel-heading">Reportes</div>
+      <div class="panel-heading">Mapas</div>
       <div class="panel-body">
-        Seleccione el tipo de gráfica y la fuente de datos
+        Seleccione la fuente de datos
       </div>
       <ul class="list-group">
-        <li class="list-group-item">Quejas</li>
-        <li class="list-group-item">Bajas/OS</li>
-        <li class="list-group-item">Pagos</li>
+        <li class="list-group-item"><a href ui-sref="#quejas">Quejas</a></li>
+        <li class="list-group-item"><a href ui-sref="#bajas">Bajas/OS</a></li>
+        <li class="list-group-item"><a href ui-sref="#pagos">Pagos</a></li>
       </ul>
     </div>
   </div>
@@ -28,8 +28,11 @@ Ok, this is the header
   This is the charts content
   -->
 
-<div class="col-md8">
-  <google-map center="map.center" zoom="map.zoom"></google-map>
+<div class="col-md9">
+  <google-map center="map.center" zoom="map.zoom" draggable="true">
+    <polygon static="true" ng-repeat="p in polygons track by p.id" path="p.path" stroke="p.stroke" visible="p.visible"
+                 geodesic="p.geodesic" fill="p.fill" fit="false" editable="p.editable" draggable="p.draggable"></polygon>
+  </google-map>
 </div> 
 
 </div>
