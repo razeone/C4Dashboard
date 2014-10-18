@@ -22,18 +22,26 @@ Ok, this is the header
         <li class="list-group-item"><a href ui-sref="#pagos">Pagos</a></li>
       </ul>
     </div>
+    <div class="panel panel-primary">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Fielders</div>
+      <div class="panel-body">
+        <p>Operaciones con fielders</p>
+      </div>
+      <!-- List group -->
+      <ul class="list-group">
+       <li class="list-group-item"><a href ui-sref="#quejas">Fielders en campo</a></li>
+       <li class="list-group-item"><a href ui-sref="#quejas">Lanzar campaña</a></li>
+       <li class="list-group-item"><a href ui-sref="#quejas">Campañas Activas</a></li>
+      </ul>
+    </div>
   </div>
 
-  <!--
-  This is the charts content
-  -->
-
-<div class="col-md9">
-  <google-map center="map.center" zoom="map.zoom" draggable="true">
-    <polygon static="true" ng-repeat="p in polygons track by p.id" path="p.path" stroke="p.stroke" visible="p.visible"
-                 geodesic="p.geodesic" fill="p.fill" fit="false" editable="p.editable" draggable="p.draggable"></polygon>
-  </google-map>
-</div> 
+  <div class="col-md9">
+    <google-map center="map.center" zoom="map.zoom" draggable="true">
+       <polygon static="true" ng-repeat="p in polygons track by p.id" path="p.path" stroke="p.stroke" visible="p.visible" geodesic="p.geodesic" fill="p.fill" fit="false" editable="p.editable" draggable="p.draggable"></polygon>
+    </google-map>
+  </div> 
 
 </div>
 
