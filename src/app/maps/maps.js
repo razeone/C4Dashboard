@@ -4,12 +4,12 @@ angular.module( 'ngBoilerplate.maps', [
   'google-maps'
 ])
 
-.config(function config( $stateProvider ) {
+.config(function config( $stateProvider, $urlRouterProvider ) {
   $stateProvider
   .state( 'maps', {
     url: '/maps',
-    views: {
-      "main": {
+    views: 
+{      "main": {
         controller: 'MapsCtrl',
         templateUrl: 'maps/maps.tpl.html'
       }
@@ -45,7 +45,23 @@ angular.module( 'ngBoilerplate.maps', [
   function sleep(millis, callback) {
     setTimeout(function()
             { callback(); }, millis);
-}
+  }
+
+  function parseGeom(data, returnArray){
+    for(var i = 0; i<data.length; i++){
+          tmp = (JSON.parse(data[i].json));
+          for(var j = 0; j < tmp.coordinates[0][0].length; j++){
+            returnArray.push({
+              latitude: tmp.coordinates[0][0][j][1],  
+              longitude: tmp.coordinates[0][0][j][0]
+              });
+          }
+      }
+  }
+
+  function onError(error){
+    alert('Ha habido un error al recuperar los estados iniciales '+error);
+  }
 
         $scope.request = $http({
       method: 'GET', 
@@ -66,7 +82,7 @@ angular.module( 'ngBoilerplate.maps', [
               }
             });
            }
-          console.log($scope.polygonArray);
+          //console.log($scope.polygonArray);
     });
 
     $scope.request.error(function(data, status, headers, config, error) {

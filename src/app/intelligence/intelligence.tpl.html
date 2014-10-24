@@ -4,7 +4,7 @@
 Ok, this is the header
   -->
   <h1 class="page-header">
-    Infraestructura
+    Inteligencia
   </h1>
   
   <!--
@@ -12,31 +12,21 @@ Ok, this is the header
   -->
   <div class="col-md-3">
     <div class="panel panel-primary">
-      <div class="panel-heading">Capas</div>
-      <div class="panel-body">
-        Infraestructura Existente
-      </div>
+      <div class="panel-heading">Capas en Tiempo Real</div>
       <ul class="list-group">
-        <li class="list-group-item"><input type="checkbox"> FTTH</li>
-        <li class="list-group-item"><input type="checkbox"> IPDSLAM</li>
-        <li class="list-group-item"><input type="checkbox"> TBA</li>
+        <li class="list-group-item"><input id="quejasLayer" ng-model="quejas" type="checkbox"> <label for="quejasLayer">Quejas</label></li>
+        <li class="list-group-item"><input id="bajasLayer" type="checkbox"> <label for="bajasLayer">Bajas</label></li>
       </ul>
     </div>
-    <div class="panel panel-primary">
-      <!-- Default panel contents -->
-      <div class="panel-heading">Fielders</div>
-      <div class="panel-body">
-        <p>Operaciones con fielders</p>
-      </div>
-      <!-- List group -->
+  <div class="panel panel-primary">
+      <div class="panel-heading">Infraestructura Existente</div>
       <ul class="list-group">
-       <li class="list-group-item"><a href ui-sref="#quejas">Fielders en campo</a></li>
-       <li class="list-group-item"><a href ui-sref="#quejas">Lanzar campaña</a></li>
-       <li class="list-group-item"><a href ui-sref="#quejas">Campañas Activas</a></li>
+        <li class="list-group-item"><input name="ftth" id="ftthLayer" type="checkbox"> <label for="ftthLayer">FTTH</label></li>
+        <li class="list-group-item"><input name="ipdslam" id="ipdslamLayer" type="checkbox"> <label for="ipdslamLayer">IPDSLAM</li>
+        <li class="list-group-item"><input name="tba" id="tbaLayer" type="checkbox"> <label for="tbaLayer">TBA</label></li>
       </ul>
     </div>
   </div>
-
   <div class="col-md9">
     <google-map center="map.center" zoom="map.zoom" draggable="true">
        <polygon static="true" ng-repeat="p in polygons track by p.id" path="p.path" stroke="p.stroke" visible="p.visible" geodesic="p.geodesic" fill="p.fill" fit="false" editable="p.editable" draggable="p.draggable"></polygon>

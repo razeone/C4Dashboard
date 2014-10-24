@@ -1,7 +1,8 @@
 angular.module( 'ngBoilerplate.intelligence', [
   'ui.router',
   'ui.bootstrap',
-  'google-maps'
+  'google-maps',
+  'btford.socket-io'
 ])
 
 .config(function config( $stateProvider ) {
@@ -17,8 +18,18 @@ angular.module( 'ngBoilerplate.intelligence', [
   });
 })
 
-.controller('IntelligenceCtrl', function IntelligenceCtrl($scope,$http){
-  // This is simple a demo for UI Boostrap.
+.factory('mySocket', function (socketFactory) {
+  var myIoSocket = io.connect('http://localhost:3000');
+  mySocket = socketFactory({
+    ioSocket: myIoSocket
+  });
+  return mySocket;
+})
+
+.controller('IntelligenceCtrl', function IntelligenceCtrl($scope,$http, mySocket, ngProgress){
+  ngProgress.color('#428BCA');
+  ngProgress.height('5px');
+
   $scope.map = {
     center: {
         latitude: 19.493098,
@@ -27,18 +38,40 @@ angular.module( 'ngBoilerplate.intelligence', [
     zoom: 12
   };
 
- $scope.request = $http({
-    method: 'GET', 
-    url: 'http://172.16.1.128/getDistricts',
-    params: {
-      area: 'LINDAVISTA'
+  $scope.$watch('quejas', function(newValue, oldValue){
+    if($scope.quejas){
+      ngProgress.start();
+      if($scope.polygons.length > 1){
+        for(var i in $scope.polygons){
+        $scope.polygons[i].visible = true;
+        }
+        ngProgress.set(100);
+        ngProgress.complete();
+      }
+      else{
+        $scope.request = $http({
+          method: 'GET', 
+          url: 'http://187.217.179.36/getDistricts',
+          params: {
+            area: 'LINDAVISTA'
+          }
+        });
+        $scope.request.success(parseGeoJSON);
+        $scope.request.error(errorRequesting);
+      }
+    }
+    else{
+      for(var k in $scope.polygons){
+        $scope.polygons[k].visible = false;
+      }
     }
   });
 
-  $scope.polygons = [];
-  $scope.request.success(function(data) 
-  {// this callback will be called asynchronously 
+  console.log("Quejas " + $scope.quejas);
 
+  $scope.polygons = [];
+
+  var parseGeoJSON = function(data){// this callback will be called asynchronously 
       for(var i = 0; i<data.length; i++){
         tmp = (JSON.parse(data[i].json));
         var aux = [];  
@@ -53,7 +86,7 @@ angular.module( 'ngBoilerplate.intelligence', [
           id: i,
           path: aux,
           stroke: {
-                    color: '#ff0000',
+                    color: '#ffffff',
                     weight: 0,
                     opacity: 1
                 },
@@ -61,17 +94,28 @@ angular.module( 'ngBoilerplate.intelligence', [
                 geodesic: false,
                 visible: true,
                 fill: {
-                    color: '#ff0000',
+                    color: '#ffffff',
                     opacity: 0.8
                 }
         });
         
     }
+    //console.log(i);
+    ngProgress.set(100);
+    ngProgress.complete();
+  };
 
-    console.log($scope.polygons);
+  var errorRequesting = function(){
+    alert('Ha habido un error al recuperar la geografía solicitada');
+  };
 
-  });
-
+mySocket.on('connect', function(){
+  //mySocket.emit('filtros', )
+  var filters = {
+    endpoint: 'os'
+  };
+  mySocket.emit('filtros', filters);
+});
   //console.log(districts);
 
 })

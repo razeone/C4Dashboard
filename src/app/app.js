@@ -6,6 +6,7 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.maps',
   'ngBoilerplate.intelligence',
   'ngBoilerplate.communications',
+  'ngProgress',
   'ui.router'
 ])
 
