@@ -19,7 +19,7 @@ angular.module( 'ngBoilerplate.intelligence', [
 })
 
 .factory('mySocket', function (socketFactory) {
-  var myIoSocket = io.connect('http://localhost:3000');
+  var myIoSocket = io.connect('http://187.217.179.36:443');
   mySocket = socketFactory({
     ioSocket: myIoSocket
   });
@@ -38,8 +38,8 @@ angular.module( 'ngBoilerplate.intelligence', [
     zoom: 12
   };
 
-  $scope.$watch('quejas', function(newValue, oldValue){
-    if($scope.quejas){
+  $scope.$watch('quejas', function(newValue, oldValue)
+{    if($scope.quejas){
       ngProgress.start();
       if($scope.polygons.length > 1){
         for(var i in $scope.polygons){
@@ -70,6 +70,19 @@ angular.module( 'ngBoilerplate.intelligence', [
   console.log("Quejas " + $scope.quejas);
 
   $scope.polygons = [];
+
+  var getColor = function(state){
+    switch(state){
+      case 1:
+        return '#ff0000';
+        
+      case 2:
+        return '#00ffff';
+        
+      case 3:
+        return '#ff0000';
+    }
+  };
 
   var parseGeoJSON = function(data){// this callback will be called asynchronously 
       for(var i = 0; i<data.length; i++){
@@ -114,7 +127,11 @@ mySocket.on('connect', function(){
   var filters = {
     endpoint: 'os'
   };
-  mySocket.emit('filtros', filters);
+  mySocket.emit('subscribe', 'quejas');
+});
+
+mySocket.on('divisiones', function(data){
+  console.log(data);
 });
   //console.log(districts);
 

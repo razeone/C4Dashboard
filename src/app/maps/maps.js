@@ -65,7 +65,7 @@ angular.module( 'ngBoilerplate.maps', [
 
         $scope.request = $http({
       method: 'GET', 
-      url: 'http://172.16.1.128:8091/quejas/divisiones/'
+      url: 'http://187.217.179.36:443/quejas/divisiones/'
     });
     $scope.request.success(function(data) {
       // this callback will be called asynchronously
@@ -94,7 +94,7 @@ angular.module( 'ngBoilerplate.maps', [
 
     $scope.request = $http({
       method: 'GET', 
-      url: 'http://127.0.0.1:4567/getStatesByDivision',
+      url: 'http://187.217.179.36/getStatesByDivision',
       params: {
         division: 'N'
       }
@@ -123,7 +123,7 @@ angular.module( 'ngBoilerplate.maps', [
 
     $scope.request = $http({
       method: 'GET', 
-      url: 'http://127.0.0.1:4567/getStatesByDivision',
+      url: 'http://187.217.179.36/getStatesByDivision',
       params: {
         division: 'RT'
       }
@@ -150,7 +150,7 @@ angular.module( 'ngBoilerplate.maps', [
 
  $scope.request = $http({
       method: 'GET', 
-      url: 'http://127.0.0.1:4567/getStatesByDivision',
+      url: 'http://187.217.179.36/getStatesByDivision',
       params: {
         division: 'RE'
       }
@@ -178,7 +178,7 @@ angular.module( 'ngBoilerplate.maps', [
 
      $scope.request = $http({
       method: 'GET', 
-      url: 'http://127.0.0.1:4567/getStatesByDivision',
+      url: 'http://187.217.179.36/getStatesByDivision',
       params: {
         division: 'RR'
       }
@@ -205,7 +205,7 @@ angular.module( 'ngBoilerplate.maps', [
 
          $scope.request = $http({
       method: 'GET', 
-      url: 'http://127.0.0.1:4567/getStatesByDivision',
+      url: 'http://187.217.179.36/getStatesByDivision',
       params: {
         division: 'RU'
       }
