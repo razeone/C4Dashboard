@@ -10,24 +10,33 @@ Ok, this is the header
   <!--
   This is the left panel
   -->
-  <div class="col-md-3">
-    <div class="panel panel-primary">
-      <div class="panel-heading">Capas en Tiempo Real</div>
+  <div class="col-md-3" >
+  <div class="panel panel-primary" ng-show="layers">
+      <div class="panel-heading">Infraestructura Existente <input type="button" ng-click="clearPolygons()"></div>
       <ul class="list-group">
-        <li class="list-group-item"><input id="quejasLayer" ng-model="quejas" type="checkbox"> <label for="quejasLayer">Quejas</label></li>
-        <li class="list-group-item"><input id="bajasLayer" type="checkbox"> <label for="bajasLayer">Bajas</label></li>
+        <li class="list-group-item"><input name="ftth" id="ftthLayer" ng-model="ftth" type="checkbox"> <label for="ftthLayer">FTTH</label></li>
+        <li class="list-group-item"><input name="ipdslam" id="ipdslamLayer" ng-model="ipdslam" type="checkbox"> <label for="ipdslamLayer">IPDSLAM</li>
+        <li class="list-group-item"><input name="tba" id="tbaLayer" ng-model="tba" type="checkbox"> <label for="tbaLayer">TBA</label></li>
       </ul>
     </div>
-  <div class="panel panel-primary">
-      <div class="panel-heading">Infraestructura Existente</div>
+    <div class="panel panel-primary" ng-show="competition">
+      <div class="panel-heading">Competencia <input type="button" ng-click="clearPolygonsC()"></div>
       <ul class="list-group">
-        <li class="list-group-item"><input name="ftth" id="ftthLayer" type="checkbox"> <label for="ftthLayer">FTTH</label></li>
-        <li class="list-group-item"><input name="ipdslam" id="ipdslamLayer" type="checkbox"> <label for="ipdslamLayer">IPDSLAM</li>
-        <li class="list-group-item"><input name="tba" id="tbaLayer" type="checkbox"> <label for="tbaLayer">TBA</label></li>
+        <li class="list-group-item"><input name="cablevision" id="cableLayer" ng-model="cablevision" type="checkbox"> <label for="cableLayer">Cablevisión</label></li>
+        <li class="list-group-item"><input name="maxcom" id="maxcomLayer" ng-model="maxcom" type="checkbox"> <label for="maxcomLayer">MAXCOM</li>
+        <li class="list-group-item"><input name="axtel" id="axtelLayer" ng-model="axtel" type="checkbox"> <label for="axtelLayer">Axtel</label></li>
+        <li class="list-group-item"><input name="total" id="totalLayer" ng-model="total" type="checkbox"> <label for="totalLayer">Total Play</label></li>
+      </ul>
+    </div>
+    <div class="panel panel-primary" ng-show="realTime">
+      <div class="panel-heading">Capas en Tiempo Real</div>
+      <ul class="list-group">
+        <li class="list-group-item"><input id="quejasLayer" name="quejas" ng-model="quejas" type="checkbox"> <label for="quejasLayer">Quejas</label></li>
+        <li class="list-group-item"><input id="bajasLayer" ng-model="bajas" type="checkbox"> <label for="bajasLayer">Bajas</label></li>
       </ul>
     </div>
   </div>
-  <div class="col-md9">
+  <div class="col-md9" ng-show="cMap">
     <google-map center="map.center" zoom="map.zoom" draggable="true">
        <polygon static="true" ng-repeat="p in polygons track by p.id" path="p.path" stroke="p.stroke" visible="p.visible" geodesic="p.geodesic" fill="p.fill" fit="false" editable="p.editable" draggable="p.draggable"></polygon>
     </google-map>

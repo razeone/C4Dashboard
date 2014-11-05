@@ -63,6 +63,9 @@ module.exports = {
   vendor_files: {
     js: [
 	'vendor/angular/angular.js',
+  'vendor/angular-cookies/angular-cookies.js',
+  'vendor/angular-resource/angular-resource.js',
+  'vendor/angular-sanitize/angular-sanitize.js',
   'vendor/d3/d3.min.js',
   'vendor/lodash/dist/lodash.underscore.min.js',
 	'vendor/angular-charts/dist/angular-charts.min.js',

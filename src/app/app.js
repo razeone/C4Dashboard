@@ -2,16 +2,21 @@ angular.module( 'ngBoilerplate', [
   'templates-app',
   'templates-common',
   'ngBoilerplate.home',
+  'ngProgress',
+  'ngCookies',
+  'ngResource',
+  'ngSanitize',
   'ngBoilerplate.reports',
+  'ngBoilerplate.auth',
   'ngBoilerplate.maps',
   'ngBoilerplate.intelligence',
   'ngBoilerplate.communications',
-  'ngProgress',
   'ui.router'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/home' );
+  $urlRouterProvider
+  .otherwise( '/home' );
 })
 
 .run( function run () {

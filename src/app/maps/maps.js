@@ -19,7 +19,7 @@ angular.module( 'ngBoilerplate.maps', [
 })
 
 .controller( 'MapsCtrl', function MapsCtrl( $scope, $http ) {
-
+/*
   // This is simple a demo for UI Boostrap.
 
   var N = [];
@@ -47,17 +47,35 @@ angular.module( 'ngBoilerplate.maps', [
             { callback(); }, millis);
   }
 
-  function parseGeom(data, returnArray){
-    for(var i = 0; i<data.length; i++){
-          tmp = (JSON.parse(data[i].json));
-          for(var j = 0; j < tmp.coordinates[0][0].length; j++){
-            returnArray.push({
-              latitude: tmp.coordinates[0][0][j][1],  
-              longitude: tmp.coordinates[0][0][j][0]
-              });
-          }
-      }
-  }
+  var parseGeoJSON = function(data){// this callback will be called asynchronously 
+      for(var i = 0; i<data.length; i++){
+        tmp = (JSON.parse(data[i].json));
+        var aux = [];  
+        for(var j = 0; j < tmp.coordinates[0][0].length; j++){
+          aux.push({
+            latitude: tmp.coordinates[0][0][j][1],  
+            longitude: tmp.coordinates[0][0][j][0]
+            });
+        }
+
+        $scope.polygons.push({
+          id: i,
+          path: aux,
+          stroke: {
+                    color: '#ffffff',
+                    weight: 0,
+                    opacity: 1
+                },
+                editable: true,
+                geodesic: false,
+                visible: true,
+                fill: {
+                    color: getColor(7),
+                    opacity: 0.8
+                }
+        });
+        
+    }
 
   function onError(error){
     alert('Ha habido un error al recuperar los estados iniciales '+error);
@@ -336,7 +354,7 @@ angular.module( 'ngBoilerplate.maps', [
     },
     zoom: 5
   };
-
+*/
 
 })
 
